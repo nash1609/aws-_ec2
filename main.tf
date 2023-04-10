@@ -77,7 +77,7 @@ resource "aws_instance" "apache" {
   associate_public_ip_address = true
   key_name                    = "mykey" #todo:  replace this with data source
   subnet_id                   = aws_subnet.mysubnet.id
-  user_data                   = file("apache.sh")
+  user_data                   = file("./aws_ec2/apache.sh")
   vpc_security_group_ids      = [aws_security_group.security.id]
   tags = {
     Name = "apache"
@@ -92,7 +92,7 @@ resource "aws_instance" "nginx" {
   associate_public_ip_address = true
   key_name                    = "mykey" #todo:  replace this with data source
   subnet_id                   = aws_subnet.mysubnet.id
-  user_data                   = file("nginx.sh")
+  user_data                   = file("./aws_ec2/nginx.sh")
   vpc_security_group_ids      = [aws_security_group.security.id]
   tags = {
     Name = "nginx"
